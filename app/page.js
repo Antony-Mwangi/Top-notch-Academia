@@ -38,10 +38,18 @@ export default function HomePage() {
       {/* HEADER */}
       <header style={{ ...styles.header, backgroundColor: theme.bg, color: theme.text }}>
         <div style={styles.navContainer}>
-          <div style={styles.logo}>
-            <Image src="/LOGO.webp" alt="TopNotch Academia Logo" width={150} height={50} />
+          {/* LOGO */}
+          <div style={styles.logoContainer}>
+            <div style={styles.logoCircle}>
+              <Image src="/LOGO.webp" alt="Logo" width={40} height={40} style={{ borderRadius: "50%" }} />
+            </div>
+            <div style={styles.logoText}>
+              <h2 style={{ margin: 0, fontSize: "1.2rem", fontWeight: "700" }}>TOP NOTCH</h2>
+              <small style={{ fontSize: "0.8rem", color: theme.text }}>Academic Excellence</small>
+            </div>
           </div>
 
+          {/* DARK MODE TOGGLE */}
           <button
             onClick={toggleDarkMode}
             style={{
@@ -58,6 +66,7 @@ export default function HomePage() {
             {darkMode ? "☀ Light" : "🌙 Dark"}
           </button>
 
+          {/* NAVIGATION */}
           {isMobile ? (
             <>
               <div style={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
@@ -176,7 +185,7 @@ export default function HomePage() {
         <div style={styles.testimonialGrid}>
           <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
             <p>"TopNotch Academia helped me ace my assignments! Highly recommended."</p>
-            <span>- Oliver smith, @ Bethune Cookman University </span>
+            <span>- Oliver Smith, @ Bethune Cookman University</span>
           </div>
           <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
             <p>"Professional, timely, and reliable service. Excellent research support."</p>
@@ -216,20 +225,38 @@ export default function HomePage() {
       <footer id="contact" style={{ ...styles.footer, backgroundColor: theme.accent }}>
         <p>© 2026 TopNotch Academia. All Rights Reserved.</p>
         <div style={styles.footerLinks}>
-          <a href="https://wa.me/254799890080" target="_blank" style={{ ...styles.footerLink, color: "#fff" }}>WhatsApp</a>
-          <a href="mailto:Topnotchacademia057@gmail.com" style={{ ...styles.footerLink, color: "#fff" }}>Email</a>
+          <a href="https://wa.me/254799890080" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+            <Image src="/1723724887_whatsapp-hero.jpg" alt="WhatsApp" width={20} height={20} />WhatsApp
+          </a>
+          <a href="mailto:Topnotchacademia057@gmail.com" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+            <Image src="/mail2.png" alt="Email" width={20} height={20} />Email
+           </a>
+          <a href="https://instagram.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+            <Image src="/Instagram_logo_2022.svg" alt="Instagram" width={20} height={20} />Instagram
+          </a>
+          <a href="https://facebook.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+            <Image src="/Facebook-Logosu.png" alt="Facebook" width={20} height={20} />Facebook
+          </a>
+          <a href="https://tiktok.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+            <Image src="/tiktok-app-icon-social-media-logo_277909-647.avif" alt="TikTok" width={20} height={20} />TikTok
+          </a>
+          <a href="https://x.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+            <Image src="/X_(formerly_Twitter)_logo_late_2025.svg" alt="X" width={20} height={20} />X
+          </a>
         </div>
       </footer>
     </main>
   );
 }
 
-// Styles
+// STYLES
 const styles = {
   page: { fontFamily: "Arial, Helvetica, sans-serif", margin: 0, padding: 0, transition: "all 0.3s ease" },
   header: { position: "sticky", top: 0, zIndex: 100, boxShadow: "0 4px 15px rgba(0,0,0,0.1)" },
   navContainer: { maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "15px 20px" },
-  logo: { display: "flex", alignItems: "center" },
+  logoContainer: { display: "flex", alignItems: "center", gap: "10px" },
+  logoCircle: { width: "50px", height: "50px", borderRadius: "50%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#fff" },
+  logoText: { display: "flex", flexDirection: "column", lineHeight: "1" },
   nav: { display: "flex", gap: "20px" },
   navMobile: { display: "flex", flexDirection: "column", gap: "15px", position: "absolute", top: "70px", right: "20px", padding: "15px 25px", borderRadius: "8px", boxShadow: "0 5px 20px rgba(0,0,0,0.15)" },
   navLink: { textDecoration: "none", fontWeight: "700", fontSize: "1rem", padding: "10px 18px", borderRadius: "8px", transition: "all 0.3s ease" },
@@ -269,6 +296,6 @@ const styles = {
   faqCard: { padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)", lineHeight: "1.6" },
 
   footer: { padding: "40px 20px", textAlign: "center" },
-  footerLinks: { marginTop: "15px", display: "flex", justifyContent: "center", gap: "25px" },
+  footerLinks: { marginTop: "15px", display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "20px" },
   footerLink: { textDecoration: "none", fontWeight: "600" },
 };
