@@ -12,10 +12,10 @@ export default function HomePage() {
             <Image src="/LOGO.webp" alt="TopNotch Academia Logo" width={150} height={50} />
           </div>
           <nav style={styles.nav}>
-            <a href="#services" style={styles.navLink}>Services</a>
-            <a href="#about" style={styles.navLink}>About Us</a>
-            <a href="#howitworks" style={styles.navLink}>How It Works</a>
-            <a href="#contact" style={styles.navLink}>Contact</a>
+            <a href="#services" style={styles.navButton}>Services</a>
+            <a href="#about" style={styles.navButton}>About Us</a>
+            <a href="#howitworks" style={styles.navButton}>How It Works</a>
+            <a href="#contact" style={styles.navButton}>Contact</a>
           </nav>
         </div>
       </header>
@@ -161,6 +161,7 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "15px 20px",
+    flexWrap: "wrap",
   },
 
   logo: {
@@ -170,22 +171,24 @@ const styles = {
 
   nav: {
     display: "flex",
-    gap: "20px",
+    gap: "12px",
+    flexWrap: "wrap",
   },
 
-  navLink: {
+  navButton: {
     textDecoration: "none",
-    color: "#0f5132",
-    fontWeight: "700",
-    fontSize: "1rem",
+    backgroundColor: "#0f5132",
+    color: "#ffffff",
     padding: "10px 18px",
     borderRadius: "8px",
+    fontWeight: "700",
+    fontSize: "0.95rem",
+    textAlign: "center",
     transition: "all 0.3s ease",
   },
 
-  navLinkHover: {
-    backgroundColor: "#0f5132",
-    color: "#ffffff",
+  navButtonHover: {
+    backgroundColor: "#198754",
   },
 
   /* HERO */
@@ -245,15 +248,6 @@ const styles = {
     fontSize: "1rem",
     textDecoration: "none",
     transition: "all 0.3s ease",
-  },
-
-  heroBtnHoverGreen: {
-    backgroundColor: "#1ebe57",
-  },
-
-  heroBtnHoverWhite: {
-    backgroundColor: "#0f5132",
-    color: "#ffffff",
   },
 
   /* SERVICES */
