@@ -78,6 +78,19 @@ export default function HomePage() {
           intended timelines.
         </p>
       </section>
+
+      {/* FOOTER */}
+      <footer style={styles.footer}>
+        <p>© 2026 TopNotch Academia. All Rights Reserved.</p>
+        <div style={styles.footerLinks}>
+          <a href="https://wa.me/254799890080" target="_blank" style={styles.footerLink}>
+            WhatsApp
+          </a>
+          <a href="mailto:Topnotchacademia057@gmail.com" style={styles.footerLink}>
+            Email
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }
@@ -199,5 +212,26 @@ const styles = {
     lineHeight: "1.7",
     color: "#212529",
     fontWeight: "500",
+  },
+
+  /* FOOTER */
+  footer: {
+    padding: "40px 20px",
+    backgroundColor: "#0f5132",
+    color: "#ffffff",
+    textAlign: "center",
+  },
+
+  footerLinks: {
+    marginTop: "15px",
+    display: "flex",
+    justifyContent: "center",
+    gap: "25px",
+  },
+
+  footerLink: {
+    color: "#ffffff",
+    textDecoration: "none",
+    fontWeight: "600",
   },
 };
