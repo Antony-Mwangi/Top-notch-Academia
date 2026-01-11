@@ -79,6 +79,31 @@ export default function HomePage() {
         </p>
       </section>
 
+      {/* ABOUT US */}
+      <section style={styles.about}>
+        <h2 style={styles.sectionTitle}>About Us</h2>
+        <p style={styles.aboutText}>
+          TopNotch Academia is a team of dedicated academic writers and technical experts committed to delivering high-quality, plagiarism-free work. Our goal is to provide timely, affordable, and professional assistance tailored to your academic and technical needs.
+        </p>
+        <div style={styles.aboutPoints}>
+          <div style={styles.point}>🎯 Expertise in multiple subjects</div>
+          <div style={styles.point}>⏱️ On-time delivery</div>
+          <div style={styles.point}>💡 Original and creative solutions</div>
+          <div style={styles.point}>🤝 Client-focused approach</div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section style={styles.howItWorks}>
+        <h2 style={styles.sectionTitle}>How It Works</h2>
+        <div style={styles.steps}>
+          <div style={styles.step}>1️⃣ Contact Us via WhatsApp or Email</div>
+          <div style={styles.step}>2️⃣ Discuss Your Requirements</div>
+          <div style={styles.step}>3️⃣ Receive Your Customized Work</div>
+          <div style={styles.step}>4️⃣ Review & Feedback</div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer style={styles.footer}>
         <p>© 2026 TopNotch Academia. All Rights Reserved.</p>
@@ -212,6 +237,62 @@ const styles = {
     lineHeight: "1.7",
     color: "#212529",
     fontWeight: "500",
+  },
+
+  /* ABOUT US */
+  about: {
+    padding: "80px 20px",
+    backgroundColor: "#e6f4ea",
+    textAlign: "center",
+  },
+
+  aboutText: {
+    maxWidth: "900px",
+    margin: "0 auto 40px",
+    fontSize: "1.1rem",
+    lineHeight: "1.8",
+    color: "#212529",
+  },
+
+  aboutPoints: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+    gap: "20px",
+    maxWidth: "900px",
+    margin: "0 auto",
+    fontSize: "1rem",
+    fontWeight: "600",
+  },
+
+  point: {
+    backgroundColor: "#ffffff",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 5px 15px rgba(0,0,0,0.08)",
+  },
+
+  /* HOW IT WORKS */
+  howItWorks: {
+    padding: "80px 20px",
+    backgroundColor: "#f1f3f5",
+    textAlign: "center",
+  },
+
+  steps: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+    maxWidth: "900px",
+    margin: "0 auto",
+    fontSize: "1.1rem",
+    fontWeight: "500",
+  },
+
+  step: {
+    backgroundColor: "#ffffff",
+    padding: "25px",
+    borderRadius: "12px",
+    boxShadow: "0 5px 15px rgba(0,0,0,0.08)",
   },
 
   /* FOOTER */
