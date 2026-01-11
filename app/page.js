@@ -1,11 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 export default function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main style={styles.page}>
       {/* HEADER / NAVIGATION */}
@@ -15,27 +12,12 @@ export default function HomePage() {
             <Image src="/LOGO.webp" alt="TopNotch Academia Logo" width={150} height={50} />
           </div>
 
-          {/* Hamburger Icon */}
-          <div
-            style={styles.hamburger}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <div style={styles.bar}></div>
-            <div style={styles.bar}></div>
-            <div style={styles.bar}></div>
-          </div>
-
           {/* Navigation Links */}
-          <nav
-            style={{
-              ...styles.nav,
-              ...(menuOpen ? styles.navMobileOpen : {}),
-            }}
-          >
-            <a href="#services" style={styles.navButton} onClick={() => setMenuOpen(false)}>Services</a>
-            <a href="#about" style={styles.navButton} onClick={() => setMenuOpen(false)}>About Us</a>
-            <a href="#howitworks" style={styles.navButton} onClick={() => setMenuOpen(false)}>How It Works</a>
-            <a href="#contact" style={styles.navButton} onClick={() => setMenuOpen(false)}>Contact</a>
+          <nav style={styles.nav}>
+            <a href="#services" style={styles.navButton}>Services</a>
+            <a href="#about" style={styles.navButton}>About Us</a>
+            <a href="#howitworks" style={styles.navButton}>How It Works</a>
+            <a href="#contact" style={styles.navButton}>Contact</a>
           </nav>
         </div>
       </header>
@@ -162,12 +144,7 @@ const styles = {
   navContainer: { maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "15px 20px", flexWrap: "wrap" },
   logo: { display: "flex", alignItems: "center" },
 
-  hamburger: { display: "none", flexDirection: "column", gap: "4px", cursor: "pointer" },
-  bar: { width: "25px", height: "3px", backgroundColor: "#0f5132", borderRadius: "2px" },
-
   nav: { display: "flex", gap: "12px", flexWrap: "wrap" },
-  navMobileOpen: { display: "flex", flexDirection: "column", width: "100%", marginTop: "10px" },
-
   navButton: {
     textDecoration: "none",
     backgroundColor: "#0f5132",
@@ -178,6 +155,10 @@ const styles = {
     fontSize: "0.95rem",
     textAlign: "center",
     transition: "all 0.3s ease",
+  },
+
+  navButtonHover: {
+    backgroundColor: "#198754",
   },
 
   /* HERO */
@@ -214,9 +195,9 @@ const styles = {
   footerLinks: { marginTop: "15px", display: "flex", justifyContent: "center", gap: "25px" },
   footerLink: { color: "#ffffff", textDecoration: "none", fontWeight: "600" },
 
-  /* MEDIA QUERY (inline internal CSS workaround) */
+  /* RESPONSIVE NAV */
   "@media(max-width:768px)": {
-    hamburger: { display: "flex" },
-    nav: { display: "none", width: "100%" },
+    nav: { flexDirection: "column", gap: "10px", width: "100%", justifyContent: "center" },
+    navButton: { width: "100%", textAlign: "center", padding: "12px 0" },
   },
 };
