@@ -36,6 +36,8 @@ export default function HomePage() {
                   <a href="#services" style={styles.navLink} onClick={() => setMenuOpen(false)}>Services</a>
                   <a href="#about" style={styles.navLink} onClick={() => setMenuOpen(false)}>About Us</a>
                   <a href="#howitworks" style={styles.navLink} onClick={() => setMenuOpen(false)}>How It Works</a>
+                  <a href="#testimonials" style={styles.navLink} onClick={() => setMenuOpen(false)}>Testimonials</a>
+                  <a href="#faq" style={styles.navLink} onClick={() => setMenuOpen(false)}>FAQs</a>
                   <a href="#contact" style={styles.navLink} onClick={() => setMenuOpen(false)}>Contact</a>
                 </nav>
               )}
@@ -45,6 +47,8 @@ export default function HomePage() {
               <a href="#services" style={styles.navLink}>Services</a>
               <a href="#about" style={styles.navLink}>About Us</a>
               <a href="#howitworks" style={styles.navLink}>How It Works</a>
+              <a href="#testimonials" style={styles.navLink}>Testimonials</a>
+              <a href="#faq" style={styles.navLink}>FAQs</a>
               <a href="#contact" style={styles.navLink}>Contact</a>
             </nav>
           )}
@@ -134,6 +138,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* TESTIMONIALS */}
+      <section id="testimonials" style={styles.testimonials}>
+        <h2 style={styles.sectionTitle}>Testimonials</h2>
+        <div style={styles.testimonialGrid}>
+          <div style={styles.testimonialCard}>
+            <p>"TopNotch Academia helped me ace my assignments! Highly recommended."</p>
+            <span>- Student A</span>
+          </div>
+          <div style={styles.testimonialCard}>
+            <p>"Professional, timely, and reliable service. Excellent research support."</p>
+            <span>- Student B</span>
+          </div>
+          <div style={styles.testimonialCard}>
+            <p>"Affordable and original work. I will definitely use their services again."</p>
+            <span>- Student C</span>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" style={styles.faq}>
+        <h2 style={styles.sectionTitle}>Frequently Asked Questions</h2>
+        <div style={styles.faqGrid}>
+          <div style={styles.faqCard}>
+            <strong>Q:</strong> Are your papers plagiarism-free?<br />
+            <strong>A:</strong> Yes! All papers are original and checked for plagiarism.
+          </div>
+          <div style={styles.faqCard}>
+            <strong>Q:</strong> How fast can I get my assignment?<br />
+            <strong>A:</strong> Depending on the complexity, we deliver from 24 hours.
+          </div>
+          <div style={styles.faqCard}>
+            <strong>Q:</strong> Can I request revisions?<br />
+            <strong>A:</strong> Absolutely, unlimited revisions until you are satisfied.
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer id="contact" style={styles.footer}>
         <p>© 2026 TopNotch Academia. All Rights Reserved.</p>
@@ -187,6 +229,16 @@ const styles = {
   howItWorks: { padding: "80px 20px", backgroundColor: "#f1f3f5", textAlign: "center" },
   steps: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto", fontSize: "1.1rem", fontWeight: "500" },
   step: { backgroundColor: "#ffffff", padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
+
+  /* TESTIMONIALS */
+  testimonials: { padding: "80px 20px", backgroundColor: "#e6f4ea", textAlign: "center" },
+  testimonialGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto" },
+  testimonialCard: { backgroundColor: "#fff", padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
+
+  /* FAQ */
+  faq: { padding: "80px 20px", backgroundColor: "#f1f3f5", textAlign: "center" },
+  faqGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto" },
+  faqCard: { backgroundColor: "#fff", padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)", lineHeight: "1.6" },
 
   /* FOOTER */
   footer: { padding: "40px 20px", backgroundColor: "#0f5132", color: "#ffffff", textAlign: "center" },
