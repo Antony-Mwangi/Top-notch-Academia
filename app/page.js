@@ -11,13 +11,11 @@ export default function HomePage() {
           <div style={styles.logo}>
             <Image src="/LOGO.webp" alt="TopNotch Academia Logo" width={150} height={50} />
           </div>
-
-          {/* Navigation Links */}
           <nav style={styles.nav}>
-            <a href="#services" style={styles.navButton}>Services</a>
-            <a href="#about" style={styles.navButton}>About Us</a>
-            <a href="#howitworks" style={styles.navButton}>How It Works</a>
-            <a href="#contact" style={styles.navButton}>Contact</a>
+            <a href="#services" style={styles.navLink}>Services</a>
+            <a href="#about" style={styles.navLink}>About Us</a>
+            <a href="#howitworks" style={styles.navLink}>How It Works</a>
+            <a href="#contact" style={styles.navLink}>Contact</a>
           </nav>
         </div>
       </header>
@@ -57,6 +55,7 @@ export default function HomePage() {
       <section id="services" style={styles.services}>
         <h2 style={styles.sectionTitle}>Our Services</h2>
         <div style={styles.servicesGrid}>
+          {/* NON-TECHNICAL */}
           <div style={styles.serviceCard}>
             <h3 style={styles.cardTitle}>Non-Technical Services</h3>
             <ul style={styles.list}>
@@ -72,6 +71,7 @@ export default function HomePage() {
             </ul>
           </div>
 
+          {/* TECHNICAL */}
           <div style={styles.serviceCard}>
             <h3 style={styles.cardTitle}>Technical Services</h3>
             <ul style={styles.list}>
@@ -137,67 +137,252 @@ export default function HomePage() {
 }
 
 const styles = {
-  page: { fontFamily: "Arial, Helvetica, sans-serif", margin: 0, padding: 0, backgroundColor: "#ffffff", color: "#212529" },
+  page: {
+    fontFamily: "Arial, Helvetica, sans-serif",
+    margin: 0,
+    padding: 0,
+    backgroundColor: "#ffffff",
+    color: "#212529",
+  },
 
   /* HEADER / NAVIGATION */
-  header: { position: "sticky", top: 0, backgroundColor: "#ffffff", zIndex: 100, boxShadow: "0 4px 15px rgba(0,0,0,0.1)" },
-  navContainer: { maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "15px 20px", flexWrap: "wrap" },
-  logo: { display: "flex", alignItems: "center" },
+  header: {
+    position: "sticky",
+    top: 0,
+    backgroundColor: "#ffffff",
+    zIndex: 100,
+    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+  },
 
-  nav: { display: "flex", gap: "12px", flexWrap: "wrap" },
-  navButton: {
+  navContainer: {
+    maxWidth: "1200px",
+    margin: "0 auto",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "15px 20px",
+  },
+
+  logo: {
+    display: "flex",
+    alignItems: "center",
+  },
+
+  nav: {
+    display: "flex",
+    gap: "20px",
+  },
+
+  navLink: {
     textDecoration: "none",
-    backgroundColor: "#0f5132",
-    color: "#ffffff",
+    color: "#0f5132",
+    fontWeight: "700",
+    fontSize: "1rem",
     padding: "10px 18px",
     borderRadius: "8px",
-    fontWeight: "700",
-    fontSize: "0.95rem",
-    textAlign: "center",
     transition: "all 0.3s ease",
   },
 
-  navButtonHover: {
-    backgroundColor: "#198754",
+  navLinkHover: {
+    backgroundColor: "#0f5132",
+    color: "#ffffff",
   },
 
   /* HERO */
-  hero: { minHeight: "100vh", backgroundColor: "#0f5132", display: "flex", alignItems: "center", justifyContent: "center", padding: "60px 20px", color: "#ffffff", textAlign: "center" },
-  heroContent: { maxWidth: "950px" },
-  title: { fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: "800", marginBottom: "25px", lineHeight: "1.2" },
-  subtitle: { fontSize: "clamp(1.1rem, 2.8vw, 1.35rem)", lineHeight: "1.7", marginBottom: "40px", color: "#e6f4ea" },
-  buttons: { display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" },
-  heroBtnGreen: { backgroundColor: "#25D366", color: "#ffffff", padding: "16px 36px", borderRadius: "40px", fontWeight: "700", fontSize: "1rem", textDecoration: "none", transition: "all 0.3s ease" },
-  heroBtnWhite: { backgroundColor: "#ffffff", color: "#0f5132", padding: "16px 36px", borderRadius: "40px", fontWeight: "700", fontSize: "1rem", textDecoration: "none", transition: "all 0.3s ease" },
+  hero: {
+    minHeight: "100vh",
+    backgroundColor: "#0f5132",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "60px 20px",
+    color: "#ffffff",
+    textAlign: "center",
+  },
+
+  heroContent: {
+    maxWidth: "950px",
+  },
+
+  title: {
+    fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
+    fontWeight: "800",
+    marginBottom: "25px",
+    lineHeight: "1.2",
+  },
+
+  subtitle: {
+    fontSize: "clamp(1.1rem, 2.8vw, 1.35rem)",
+    lineHeight: "1.7",
+    marginBottom: "40px",
+    color: "#e6f4ea",
+  },
+
+  buttons: {
+    display: "flex",
+    gap: "20px",
+    justifyContent: "center",
+    flexWrap: "wrap",
+  },
+
+  heroBtnGreen: {
+    backgroundColor: "#25D366",
+    color: "#ffffff",
+    padding: "16px 36px",
+    borderRadius: "40px",
+    fontWeight: "700",
+    fontSize: "1rem",
+    textDecoration: "none",
+    transition: "all 0.3s ease",
+  },
+
+  heroBtnWhite: {
+    backgroundColor: "#ffffff",
+    color: "#0f5132",
+    padding: "16px 36px",
+    borderRadius: "40px",
+    fontWeight: "700",
+    fontSize: "1rem",
+    textDecoration: "none",
+    transition: "all 0.3s ease",
+  },
+
+  heroBtnHoverGreen: {
+    backgroundColor: "#1ebe57",
+  },
+
+  heroBtnHoverWhite: {
+    backgroundColor: "#0f5132",
+    color: "#ffffff",
+  },
 
   /* SERVICES */
-  services: { padding: "80px 20px", backgroundColor: "#f1f3f5" },
-  sectionTitle: { textAlign: "center", fontSize: "clamp(2rem, 4.5vw, 2.6rem)", marginBottom: "50px", color: "#0f5132", fontWeight: "800" },
-  servicesGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", maxWidth: "1200px", margin: "0 auto" },
-  serviceCard: { backgroundColor: "#ffffff", padding: "35px", borderRadius: "18px", boxShadow: "0 10px 28px rgba(0,0,0,0.1)" },
-  cardTitle: { fontSize: "1.5rem", marginBottom: "20px", color: "#198754", fontWeight: "700" },
-  list: { paddingLeft: "20px", fontSize: "1.05rem", lineHeight: "1.9" },
-  note: { marginTop: "50px", maxWidth: "950px", marginInline: "auto", textAlign: "center", fontSize: "1.1rem", lineHeight: "1.7", color: "#212529", fontWeight: "500" },
+  services: {
+    padding: "80px 20px",
+    backgroundColor: "#f1f3f5",
+  },
+
+  sectionTitle: {
+    textAlign: "center",
+    fontSize: "clamp(2rem, 4.5vw, 2.6rem)",
+    marginBottom: "50px",
+    color: "#0f5132",
+    fontWeight: "800",
+  },
+
+  servicesGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: "40px",
+    maxWidth: "1200px",
+    margin: "0 auto",
+  },
+
+  serviceCard: {
+    backgroundColor: "#ffffff",
+    padding: "35px",
+    borderRadius: "18px",
+    boxShadow: "0 10px 28px rgba(0,0,0,0.1)",
+  },
+
+  cardTitle: {
+    fontSize: "1.5rem",
+    marginBottom: "20px",
+    color: "#198754",
+    fontWeight: "700",
+  },
+
+  list: {
+    paddingLeft: "20px",
+    fontSize: "1.05rem",
+    lineHeight: "1.9",
+  },
+
+  note: {
+    marginTop: "50px",
+    maxWidth: "950px",
+    marginInline: "auto",
+    textAlign: "center",
+    fontSize: "1.1rem",
+    lineHeight: "1.7",
+    color: "#212529",
+    fontWeight: "500",
+  },
 
   /* ABOUT US */
-  about: { padding: "80px 20px", backgroundColor: "#e6f4ea", textAlign: "center" },
-  aboutText: { maxWidth: "900px", margin: "0 auto 40px", fontSize: "1.1rem", lineHeight: "1.8", color: "#212529" },
-  aboutPoints: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto", fontSize: "1rem", fontWeight: "600" },
-  point: { backgroundColor: "#ffffff", padding: "20px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
+  about: {
+    padding: "80px 20px",
+    backgroundColor: "#e6f4ea",
+    textAlign: "center",
+  },
+
+  aboutText: {
+    maxWidth: "900px",
+    margin: "0 auto 40px",
+    fontSize: "1.1rem",
+    lineHeight: "1.8",
+    color: "#212529",
+  },
+
+  aboutPoints: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+    gap: "20px",
+    maxWidth: "900px",
+    margin: "0 auto",
+    fontSize: "1rem",
+    fontWeight: "600",
+  },
+
+  point: {
+    backgroundColor: "#ffffff",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 5px 15px rgba(0,0,0,0.08)",
+  },
 
   /* HOW IT WORKS */
-  howItWorks: { padding: "80px 20px", backgroundColor: "#f1f3f5", textAlign: "center" },
-  steps: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto", fontSize: "1.1rem", fontWeight: "500" },
-  step: { backgroundColor: "#ffffff", padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
+  howItWorks: {
+    padding: "80px 20px",
+    backgroundColor: "#f1f3f5",
+    textAlign: "center",
+  },
+
+  steps: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+    maxWidth: "900px",
+    margin: "0 auto",
+    fontSize: "1.1rem",
+    fontWeight: "500",
+  },
+
+  step: {
+    backgroundColor: "#ffffff",
+    padding: "25px",
+    borderRadius: "12px",
+    boxShadow: "0 5px 15px rgba(0,0,0,0.08)",
+  },
 
   /* FOOTER */
-  footer: { padding: "40px 20px", backgroundColor: "#0f5132", color: "#ffffff", textAlign: "center" },
-  footerLinks: { marginTop: "15px", display: "flex", justifyContent: "center", gap: "25px" },
-  footerLink: { color: "#ffffff", textDecoration: "none", fontWeight: "600" },
+  footer: {
+    padding: "40px 20px",
+    backgroundColor: "#0f5132",
+    color: "#ffffff",
+    textAlign: "center",
+  },
 
-  /* RESPONSIVE NAV */
-  "@media(max-width:768px)": {
-    nav: { flexDirection: "column", gap: "10px", width: "100%", justifyContent: "center" },
-    navButton: { width: "100%", textAlign: "center", padding: "12px 0" },
+  footerLinks: {
+    marginTop: "15px",
+    display: "flex",
+    justifyContent: "center",
+    gap: "25px",
+  },
+
+  footerLink: {
+    color: "#ffffff",
+    textDecoration: "none",
+    fontWeight: "600",
   },
 };
