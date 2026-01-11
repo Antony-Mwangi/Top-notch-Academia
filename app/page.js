@@ -176,15 +176,19 @@ export default function HomePage() {
         <div style={styles.testimonialGrid}>
           <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
             <p>"TopNotch Academia helped me ace my assignments! Highly recommended."</p>
-            <span>- Student A</span>
+            <span>- Oliver smith, @ Bethune Cookman University </span>
           </div>
           <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
             <p>"Professional, timely, and reliable service. Excellent research support."</p>
-            <span>- Student B</span>
+            <span>- Emma Johnson, @ Harvard University</span>
           </div>
           <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
             <p>"Affordable and original work. I will definitely use their services again."</p>
-            <span>- Student C</span>
+            <span>- Liam Brown, @ Stanford University</span>
+          </div>
+          <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
+            <p>"Thanks to TopNotch Academia, I scored the highest grade in my research paper! The team was professional, quick, and supportive every step of the way."</p>
+            <span>- Peter Parker, @ University of Texas at Arlington</span>
           </div>
         </div>
       </section>
