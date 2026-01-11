@@ -6,78 +6,116 @@ import Image from "next/image";
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize(); // initial check
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const toggleDarkMode = () => setDarkMode(!darkMode);
+
+  const theme = darkMode
+    ? {
+        bg: "#0B1F3F",
+        text: "#D0E6FF",
+        secondary: "#123963",
+        accent: "#1E90FF",
+        card: "#142D5A",
+      }
+    : {
+        bg: "#DCEEFB",
+        text: "#0B1F3F",
+        secondary: "#A3C9FF",
+        accent: "#1E90FF",
+        card: "#FFFFFF",
+      };
+
   return (
-    <main style={styles.page}>
+    <main style={{ ...styles.page, backgroundColor: theme.bg, color: theme.text }}>
       {/* HEADER */}
-      <header style={styles.header}>
+      <header style={{ ...styles.header, backgroundColor: theme.bg, color: theme.text }}>
         <div style={styles.navContainer}>
           <div style={styles.logo}>
             <Image src="/LOGO.webp" alt="TopNotch Academia Logo" width={150} height={50} />
           </div>
 
+          <button
+            onClick={toggleDarkMode}
+            style={{
+              marginRight: "15px",
+              padding: "8px 12px",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              backgroundColor: theme.secondary,
+              color: theme.text,
+              fontWeight: "600",
+            }}
+          >
+            {darkMode ? "☀ Light" : "🌙 Dark"}
+          </button>
+
           {isMobile ? (
             <>
               <div style={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
-                <div style={styles.bar}></div>
-                <div style={styles.bar}></div>
-                <div style={styles.bar}></div>
+                <div style={{ ...styles.bar, backgroundColor: theme.text }}></div>
+                <div style={{ ...styles.bar, backgroundColor: theme.text }}></div>
+                <div style={{ ...styles.bar, backgroundColor: theme.text }}></div>
               </div>
 
               {menuOpen && (
-                <nav style={styles.navMobile}>
-                  <a href="#services" style={styles.navLink} onClick={() => setMenuOpen(false)}>Services</a>
-                  <a href="#about" style={styles.navLink} onClick={() => setMenuOpen(false)}>About Us</a>
-                  <a href="#howitworks" style={styles.navLink} onClick={() => setMenuOpen(false)}>How It Works</a>
-                  <a href="#testimonials" style={styles.navLink} onClick={() => setMenuOpen(false)}>Testimonials</a>
-                  <a href="#faq" style={styles.navLink} onClick={() => setMenuOpen(false)}>FAQs</a>
-                  <a href="#contact" style={styles.navLink} onClick={() => setMenuOpen(false)}>Contact</a>
+                <nav style={{ ...styles.navMobile, backgroundColor: theme.secondary }}>
+                  <a href="#services" style={{ ...styles.navLink, color: theme.text }} onClick={() => setMenuOpen(false)}>Services</a>
+                  <a href="#about" style={{ ...styles.navLink, color: theme.text }} onClick={() => setMenuOpen(false)}>About Us</a>
+                  <a href="#howitworks" style={{ ...styles.navLink, color: theme.text }} onClick={() => setMenuOpen(false)}>How It Works</a>
+                  <a href="#testimonials" style={{ ...styles.navLink, color: theme.text }} onClick={() => setMenuOpen(false)}>Testimonials</a>
+                  <a href="#faq" style={{ ...styles.navLink, color: theme.text }} onClick={() => setMenuOpen(false)}>FAQs</a>
+                  <a href="#contact" style={{ ...styles.navLink, color: theme.text }} onClick={() => setMenuOpen(false)}>Contact</a>
                 </nav>
               )}
             </>
           ) : (
             <nav style={styles.nav}>
-              <a href="#services" style={styles.navLink}>Services</a>
-              <a href="#about" style={styles.navLink}>About Us</a>
-              <a href="#howitworks" style={styles.navLink}>How It Works</a>
-              <a href="#testimonials" style={styles.navLink}>Testimonials</a>
-              <a href="#faq" style={styles.navLink}>FAQs</a>
-              <a href="#contact" style={styles.navLink}>Contact</a>
+              <a href="#services" style={{ ...styles.navLink, color: theme.text }}>Services</a>
+              <a href="#about" style={{ ...styles.navLink, color: theme.text }}>About Us</a>
+              <a href="#howitworks" style={{ ...styles.navLink, color: theme.text }}>How It Works</a>
+              <a href="#testimonials" style={{ ...styles.navLink, color: theme.text }}>Testimonials</a>
+              <a href="#faq" style={{ ...styles.navLink, color: theme.text }}>FAQs</a>
+              <a href="#contact" style={{ ...styles.navLink, color: theme.text }}>Contact</a>
             </nav>
           )}
         </div>
       </header>
 
       {/* HERO */}
-      <section style={styles.hero}>
+      <section style={{ ...styles.hero, backgroundColor: theme.accent, color: "#fff" }}>
         <div style={styles.heroContent}>
           <h1 style={styles.title}>Academic Writing & Research Services</h1>
           <p style={styles.subtitle}>
-            We are pleased to inform you that we have expanded our team of
-            Academic Writing and Research / Technical Experts to serve you better.
+            At TopNotch Academia, we transform complex ideas into perfectly crafted academic and research papers tailored just for you.
+            Our seasoned experts ensure originality, precision, and timely delivery. Join hundreds of students achieving top grades and academic success.
           </p>
           <div style={styles.buttons}>
-            <a href="https://wa.me/254799890080" target="_blank" style={styles.heroBtnGreen}>WhatsApp Us</a>
+            <a href="https://wa.me/254799890080" target="_blank" style={styles.heroBtnWhite}>WhatsApp Us</a>
             <a href="mailto:Topnotchacademia057@gmail.com" style={styles.heroBtnWhite}>Email Us</a>
+          </div>
+          <div style={styles.heroImages}>
+            <Image src="/happystudents.PNG" alt="Happy student" width={250} height={150} style={{ borderRadius: "12px" }} />
+            <Image src="/Graduation.avif" alt="Students celebrating" width={250} height={150} style={{ borderRadius: "12px" }} />
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" style={styles.services}>
-        <h2 style={styles.sectionTitle}>Our Services</h2>
+      <section id="services" style={{ ...styles.services, backgroundColor: theme.secondary }}>
+        <h2 style={{ ...styles.sectionTitle, color: theme.text }}>Our Services</h2>
         <div style={styles.servicesGrid}>
-          {/* NON-TECHNICAL */}
-          <div style={styles.serviceCard}>
-            <h3 style={styles.cardTitle}>Non-Technical Services</h3>
-            <ul style={styles.list}>
+          <div style={{ ...styles.serviceCard, backgroundColor: theme.card }}>
+            <h3 style={{ ...styles.cardTitle, color: theme.accent }}>Non-Technical Services</h3>
+            <ul style={{ ...styles.list, color: theme.text }}>
               <li>Mathematics & Calculus</li>
               <li>Economics</li>
               <li>Accounting & Finance</li>
@@ -89,11 +127,9 @@ export default function HomePage() {
               <li>Coursework & Assignments</li>
             </ul>
           </div>
-
-          {/* TECHNICAL */}
-          <div style={styles.serviceCard}>
-            <h3 style={styles.cardTitle}>Technical Services</h3>
-            <ul style={styles.list}>
+          <div style={{ ...styles.serviceCard, backgroundColor: theme.card }}>
+            <h3 style={{ ...styles.cardTitle, color: theme.accent }}>Technical Services</h3>
+            <ul style={{ ...styles.list, color: theme.text }}>
               <li>Database Management</li>
               <li>IT & Networking</li>
               <li>Web Development & Administration</li>
@@ -106,51 +142,47 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
-        <p style={styles.note}>
-          ✔ We provide authentic and original papers that are free from plagiarism
-          of any kind (including AI), delivered at affordable rates and within
-          intended timelines.
+        <p style={{ ...styles.note, color: theme.text }}>
+          ✔ We provide authentic, original, plagiarism-free papers delivered on time at affordable rates.
         </p>
       </section>
 
-      {/* ABOUT US */}
-      <section id="about" style={styles.about}>
-        <h2 style={styles.sectionTitle}>About Us</h2>
-        <p style={styles.aboutText}>
-          TopNotch Academia is a team of dedicated academic writers and technical experts committed to delivering high-quality, plagiarism-free work. Our goal is to provide timely, affordable, and professional assistance tailored to your academic and technical needs.
-        </p>
-        <div style={styles.aboutPoints}>
-          <div style={styles.point}>🎯 Expertise in multiple subjects</div>
-          <div style={styles.point}>⏱️ On-time delivery</div>
-          <div style={styles.point}>💡 Original and creative solutions</div>
-          <div style={styles.point}>🤝 Client-focused approach</div>
+      {/* ABOUT */}
+      <section id="about" style={{ ...styles.about, backgroundColor: theme.bg }}>
+        <h2 style={{ ...styles.sectionTitle, color: theme.accent }}>About Us</h2>
+        <div style={styles.aboutContent}>
+          <p style={{ ...styles.aboutText, color: theme.text }}>
+            TopNotch Academia is a team of dedicated academic writers and technical experts committed to delivering high-quality, plagiarism-free work.
+            We help students achieve academic excellence and boost confidence, offering timely, affordable, and professional assistance tailored to your needs.
+          </p>
+          <Image src="/WhatsApp Image 2026-01-10 at 10.55.36 PM.jpeg" alt="Instructor" width={300} height={200} style={{ borderRadius: "12px" }} />
         </div>
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="howitworks" style={styles.howItWorks}>
-        <h2 style={styles.sectionTitle}>How It Works</h2>
+      <section id="howitworks" style={{ ...styles.howItWorks, backgroundColor: theme.secondary }}>
+        <h2 style={{ ...styles.sectionTitle, color: theme.text }}>How It Works</h2>
         <div style={styles.steps}>
-          <div style={styles.step}>1️⃣ Contact Us via WhatsApp or Email</div>
-          <div style={styles.step}>2️⃣ Discuss Your Requirements</div>
-          <div style={styles.step}>3️⃣ Receive Your Customized Work</div>
-          <div style={styles.step}>4️⃣ Review & Feedback</div>
+          <div style={{ ...styles.step, backgroundColor: theme.card, color: theme.text }}>1️⃣ Contact Us via WhatsApp or Email</div>
+          <div style={{ ...styles.step, backgroundColor: theme.card, color: theme.text }}>2️⃣ Discuss Your Requirements</div>
+          <div style={{ ...styles.step, backgroundColor: theme.card, color: theme.text }}>3️⃣ Receive Your Customized Work</div>
+          <div style={{ ...styles.step, backgroundColor: theme.card, color: theme.text }}>4️⃣ Review & Feedback</div>
         </div>
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" style={styles.testimonials}>
-        <h2 style={styles.sectionTitle}>Testimonials</h2>
+      <section id="testimonials" style={{ ...styles.testimonials, backgroundColor: theme.bg }}>
+        <h2 style={{ ...styles.sectionTitle, color: theme.accent }}>Testimonials</h2>
         <div style={styles.testimonialGrid}>
-          <div style={styles.testimonialCard}>
+          <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
             <p>"TopNotch Academia helped me ace my assignments! Highly recommended."</p>
             <span>- Student A</span>
           </div>
-          <div style={styles.testimonialCard}>
+          <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
             <p>"Professional, timely, and reliable service. Excellent research support."</p>
             <span>- Student B</span>
           </div>
-          <div style={styles.testimonialCard}>
+          <div style={{ ...styles.testimonialCard, backgroundColor: theme.secondary, color: theme.text }}>
             <p>"Affordable and original work. I will definitely use their services again."</p>
             <span>- Student C</span>
           </div>
@@ -158,18 +190,18 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" style={styles.faq}>
-        <h2 style={styles.sectionTitle}>Frequently Asked Questions</h2>
+      <section id="faq" style={{ ...styles.faq, backgroundColor: theme.secondary }}>
+        <h2 style={{ ...styles.sectionTitle, color: theme.text }}>Frequently Asked Questions</h2>
         <div style={styles.faqGrid}>
-          <div style={styles.faqCard}>
+          <div style={{ ...styles.faqCard, backgroundColor: theme.card, color: theme.text }}>
             <strong>Q:</strong> Are your papers plagiarism-free?<br />
             <strong>A:</strong> Yes! All papers are original and checked for plagiarism.
           </div>
-          <div style={styles.faqCard}>
+          <div style={{ ...styles.faqCard, backgroundColor: theme.card, color: theme.text }}>
             <strong>Q:</strong> How fast can I get my assignment?<br />
-            <strong>A:</strong> Depending on the complexity, we deliver from 24 hours.
+            <strong>A:</strong> Depending on complexity, we deliver from 24 hours.
           </div>
-          <div style={styles.faqCard}>
+          <div style={{ ...styles.faqCard, backgroundColor: theme.card, color: theme.text }}>
             <strong>Q:</strong> Can I request revisions?<br />
             <strong>A:</strong> Absolutely, unlimited revisions until you are satisfied.
           </div>
@@ -177,71 +209,62 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" style={styles.footer}>
+      <footer id="contact" style={{ ...styles.footer, backgroundColor: theme.accent }}>
         <p>© 2026 TopNotch Academia. All Rights Reserved.</p>
         <div style={styles.footerLinks}>
-          <a href="https://wa.me/254799890080" target="_blank" style={styles.footerLink}>WhatsApp</a>
-          <a href="mailto:Topnotchacademia057@gmail.com" style={styles.footerLink}>Email</a>
+          <a href="https://wa.me/254799890080" target="_blank" style={{ ...styles.footerLink, color: "#fff" }}>WhatsApp</a>
+          <a href="mailto:Topnotchacademia057@gmail.com" style={{ ...styles.footerLink, color: "#fff" }}>Email</a>
         </div>
       </footer>
     </main>
   );
 }
 
+// Styles
 const styles = {
-  page: { fontFamily: "Arial, Helvetica, sans-serif", margin: 0, padding: 0, backgroundColor: "#fff", color: "#212529" },
-
-  /* HEADER */
-  header: { position: "sticky", top: 0, backgroundColor: "#fff", zIndex: 100, boxShadow: "0 4px 15px rgba(0,0,0,0.1)" },
+  page: { fontFamily: "Arial, Helvetica, sans-serif", margin: 0, padding: 0, transition: "all 0.3s ease" },
+  header: { position: "sticky", top: 0, zIndex: 100, boxShadow: "0 4px 15px rgba(0,0,0,0.1)" },
   navContainer: { maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "15px 20px" },
   logo: { display: "flex", alignItems: "center" },
   nav: { display: "flex", gap: "20px" },
-  navMobile: { display: "flex", flexDirection: "column", gap: "15px", position: "absolute", top: "70px", right: "20px", backgroundColor: "#ffffff", padding: "15px 25px", borderRadius: "8px", boxShadow: "0 5px 20px rgba(0,0,0,0.15)" },
-  navLink: { textDecoration: "none", color: "#0f5132", fontWeight: "700", fontSize: "1rem", padding: "10px 18px", borderRadius: "8px", transition: "all 0.3s ease" },
+  navMobile: { display: "flex", flexDirection: "column", gap: "15px", position: "absolute", top: "70px", right: "20px", padding: "15px 25px", borderRadius: "8px", boxShadow: "0 5px 20px rgba(0,0,0,0.15)" },
+  navLink: { textDecoration: "none", fontWeight: "700", fontSize: "1rem", padding: "10px 18px", borderRadius: "8px", transition: "all 0.3s ease" },
   hamburger: { display: "flex", flexDirection: "column", justifyContent: "space-between", width: "25px", height: "20px", cursor: "pointer" },
-  bar: { height: "3px", width: "100%", backgroundColor: "#0f5132", borderRadius: "3px" },
+  bar: { height: "3px", width: "100%", borderRadius: "3px" },
 
-  /* HERO */
-  hero: { minHeight: "100vh", backgroundColor: "#0f5132", display: "flex", alignItems: "center", justifyContent: "center", padding: "60px 20px", color: "#fff", textAlign: "center" },
+  hero: { minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "60px 20px", textAlign: "center" },
   heroContent: { maxWidth: "950px" },
+  heroImages: { display: "flex", justifyContent: "center", gap: "20px", marginTop: "30px", flexWrap: "wrap" },
   title: { fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: "800", marginBottom: "25px", lineHeight: "1.2" },
-  subtitle: { fontSize: "clamp(1.1rem, 2.8vw, 1.35rem)", lineHeight: "1.7", marginBottom: "40px", color: "#e6f4ea" },
+  subtitle: { fontSize: "clamp(1.1rem, 2.8vw, 1.35rem)", lineHeight: "1.7", marginBottom: "40px" },
   buttons: { display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" },
-  heroBtnGreen: { backgroundColor: "#25D366", color: "#fff", padding: "16px 36px", borderRadius: "40px", fontWeight: "700", fontSize: "1rem", textDecoration: "none", transition: "all 0.3s ease" },
-  heroBtnWhite: { backgroundColor: "#fff", color: "#0f5132", padding: "16px 36px", borderRadius: "40px", fontWeight: "700", fontSize: "1rem", textDecoration: "none", transition: "all 0.3s ease" },
+  heroBtnWhite: { backgroundColor: "#fff", color: "#1E90FF", padding: "16px 36px", borderRadius: "40px", fontWeight: "700", fontSize: "1rem", textDecoration: "none", transition: "all 0.3s ease" },
 
-  /* SERVICES */
-  services: { padding: "80px 20px", backgroundColor: "#f1f3f5" },
-  sectionTitle: { textAlign: "center", fontSize: "clamp(2rem, 4.5vw, 2.6rem)", marginBottom: "50px", color: "#0f5132", fontWeight: "800" },
+  services: { padding: "80px 20px" },
+  sectionTitle: { textAlign: "center", fontSize: "clamp(2rem, 4.5vw, 2.6rem)", marginBottom: "50px", fontWeight: "800" },
   servicesGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", maxWidth: "1200px", margin: "0 auto" },
-  serviceCard: { backgroundColor: "#ffffff", padding: "35px", borderRadius: "18px", boxShadow: "0 10px 28px rgba(0,0,0,0.1)" },
-  cardTitle: { fontSize: "1.5rem", marginBottom: "20px", color: "#198754", fontWeight: "700" },
+  serviceCard: { padding: "35px", borderRadius: "18px", boxShadow: "0 10px 28px rgba(0,0,0,0.1)" },
+  cardTitle: { fontSize: "1.5rem", marginBottom: "20px", fontWeight: "700" },
   list: { paddingLeft: "20px", fontSize: "1.05rem", lineHeight: "1.9" },
-  note: { marginTop: "50px", maxWidth: "950px", marginInline: "auto", textAlign: "center", fontSize: "1.1rem", lineHeight: "1.7", color: "#212529", fontWeight: "500" },
+  note: { marginTop: "50px", maxWidth: "950px", marginInline: "auto", textAlign: "center", fontSize: "1.1rem", lineHeight: "1.7", fontWeight: "500" },
 
-  /* ABOUT */
-  about: { padding: "80px 20px", backgroundColor: "#e6f4ea", textAlign: "center" },
-  aboutText: { maxWidth: "900px", margin: "0 auto 40px", fontSize: "1.1rem", lineHeight: "1.8", color: "#212529" },
-  aboutPoints: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto", fontSize: "1rem", fontWeight: "600" },
-  point: { backgroundColor: "#ffffff", padding: "20px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
+  about: { padding: "80px 20px", textAlign: "center" },
+  aboutContent: { display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" },
+  aboutText: { maxWidth: "900px", fontSize: "1.1rem", lineHeight: "1.8" },
 
-  /* HOW IT WORKS */
-  howItWorks: { padding: "80px 20px", backgroundColor: "#f1f3f5", textAlign: "center" },
+  howItWorks: { padding: "80px 20px", textAlign: "center" },
   steps: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto", fontSize: "1.1rem", fontWeight: "500" },
-  step: { backgroundColor: "#ffffff", padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
+  step: { padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
 
-  /* TESTIMONIALS */
-  testimonials: { padding: "80px 20px", backgroundColor: "#e6f4ea", textAlign: "center" },
+  testimonials: { padding: "80px 20px", textAlign: "center" },
   testimonialGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto" },
-  testimonialCard: { backgroundColor: "#fff", padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
+  testimonialCard: { padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)" },
 
-  /* FAQ */
-  faq: { padding: "80px 20px", backgroundColor: "#f1f3f5", textAlign: "center" },
+  faq: { padding: "80px 20px", textAlign: "center" },
   faqGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px", maxWidth: "900px", margin: "0 auto" },
-  faqCard: { backgroundColor: "#fff", padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)", lineHeight: "1.6" },
+  faqCard: { padding: "25px", borderRadius: "12px", boxShadow: "0 5px 15px rgba(0,0,0,0.08)", lineHeight: "1.6" },
 
-  /* FOOTER */
-  footer: { padding: "40px 20px", backgroundColor: "#0f5132", color: "#ffffff", textAlign: "center" },
+  footer: { padding: "40px 20px", textAlign: "center" },
   footerLinks: { marginTop: "15px", display: "flex", justifyContent: "center", gap: "25px" },
-  footerLink: { color: "#ffffff", textDecoration: "none", fontWeight: "600" },
+  footerLink: { textDecoration: "none", fontWeight: "600" },
 };
