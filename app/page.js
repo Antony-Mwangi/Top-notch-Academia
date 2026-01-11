@@ -1,8 +1,25 @@
 "use client";
 
+import Image from "next/image";
+
 export default function HomePage() {
   return (
     <main style={styles.page}>
+      {/* HEADER / NAVIGATION */}
+      <header style={styles.header}>
+        <div style={styles.navContainer}>
+          <div style={styles.logo}>
+            <Image src="/LOGO.webp" alt="TopNotch Academia Logo" width={150} height={50} />
+          </div>
+          <nav style={styles.nav}>
+            <a href="#services" style={styles.navLink}>Services</a>
+            <a href="#about" style={styles.navLink}>About Us</a>
+            <a href="#howitworks" style={styles.navLink}>How It Works</a>
+            <a href="#contact" style={styles.navLink}>Contact</a>
+          </nav>
+        </div>
+      </header>
+
       {/* HERO */}
       <section style={styles.hero}>
         <div style={styles.heroContent}>
@@ -19,14 +36,14 @@ export default function HomePage() {
             <a
               href="https://wa.me/254799890080"
               target="_blank"
-              style={styles.whatsappBtn}
+              style={styles.heroBtnGreen}
             >
               WhatsApp Us
             </a>
 
             <a
               href="mailto:Topnotchacademia057@gmail.com"
-              style={styles.emailBtn}
+              style={styles.heroBtnWhite}
             >
               Email Us
             </a>
@@ -35,9 +52,8 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES */}
-      <section style={styles.services}>
+      <section id="services" style={styles.services}>
         <h2 style={styles.sectionTitle}>Our Services</h2>
-
         <div style={styles.servicesGrid}>
           {/* NON-TECHNICAL */}
           <div style={styles.serviceCard}>
@@ -80,7 +96,7 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT US */}
-      <section style={styles.about}>
+      <section id="about" style={styles.about}>
         <h2 style={styles.sectionTitle}>About Us</h2>
         <p style={styles.aboutText}>
           TopNotch Academia is a team of dedicated academic writers and technical experts committed to delivering high-quality, plagiarism-free work. Our goal is to provide timely, affordable, and professional assistance tailored to your academic and technical needs.
@@ -94,7 +110,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section style={styles.howItWorks}>
+      <section id="howitworks" style={styles.howItWorks}>
         <h2 style={styles.sectionTitle}>How It Works</h2>
         <div style={styles.steps}>
           <div style={styles.step}>1️⃣ Contact Us via WhatsApp or Email</div>
@@ -105,7 +121,7 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
-      <footer style={styles.footer}>
+      <footer id="contact" style={styles.footer}>
         <p>© 2026 TopNotch Academia. All Rights Reserved.</p>
         <div style={styles.footerLinks}>
           <a href="https://wa.me/254799890080" target="_blank" style={styles.footerLink}>
@@ -129,6 +145,49 @@ const styles = {
     color: "#212529",
   },
 
+  /* HEADER / NAVIGATION */
+  header: {
+    position: "sticky",
+    top: 0,
+    backgroundColor: "#ffffff",
+    zIndex: 100,
+    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+  },
+
+  navContainer: {
+    maxWidth: "1200px",
+    margin: "0 auto",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "15px 20px",
+  },
+
+  logo: {
+    display: "flex",
+    alignItems: "center",
+  },
+
+  nav: {
+    display: "flex",
+    gap: "20px",
+  },
+
+  navLink: {
+    textDecoration: "none",
+    color: "#0f5132",
+    fontWeight: "700",
+    fontSize: "1rem",
+    padding: "10px 18px",
+    borderRadius: "8px",
+    transition: "all 0.3s ease",
+  },
+
+  navLinkHover: {
+    backgroundColor: "#0f5132",
+    color: "#ffffff",
+  },
+
   /* HERO */
   hero: {
     minHeight: "100vh",
@@ -138,11 +197,11 @@ const styles = {
     justifyContent: "center",
     padding: "60px 20px",
     color: "#ffffff",
+    textAlign: "center",
   },
 
   heroContent: {
     maxWidth: "950px",
-    textAlign: "center",
   },
 
   title: {
@@ -166,24 +225,35 @@ const styles = {
     flexWrap: "wrap",
   },
 
-  whatsappBtn: {
+  heroBtnGreen: {
     backgroundColor: "#25D366",
     color: "#ffffff",
-    padding: "16px 34px",
+    padding: "16px 36px",
     borderRadius: "40px",
-    textDecoration: "none",
     fontWeight: "700",
     fontSize: "1rem",
+    textDecoration: "none",
+    transition: "all 0.3s ease",
   },
 
-  emailBtn: {
+  heroBtnWhite: {
     backgroundColor: "#ffffff",
     color: "#0f5132",
-    padding: "16px 34px",
+    padding: "16px 36px",
     borderRadius: "40px",
-    textDecoration: "none",
     fontWeight: "700",
     fontSize: "1rem",
+    textDecoration: "none",
+    transition: "all 0.3s ease",
+  },
+
+  heroBtnHoverGreen: {
+    backgroundColor: "#1ebe57",
+  },
+
+  heroBtnHoverWhite: {
+    backgroundColor: "#0f5132",
+    color: "#ffffff",
   },
 
   /* SERVICES */
