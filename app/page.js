@@ -231,18 +231,18 @@ export default function HomePage() {
           <a href="mailto:Topnotchacademia057@gmail.com" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
             <Image src="/mail2.png" alt="Email" width={20} height={20} />Email
            </a>
-          <a href="https://instagram.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+          <a href="https://www.instagram.com/essaystopnotch/" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
             <Image src="/Instagram_logo_2022.svg" alt="Instagram" width={20} height={20} />Instagram
           </a>
           <a href="https://www.facebook.com/share/19dzpF9xe1/" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
             <Image src="/Facebook-Logosu.png" alt="Facebook" width={20} height={20} />Facebook
           </a>
-          <a href="https://tiktok.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+          <a href="tiktok.com/@p_notch_academy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
             <Image src="/tiktok-app-icon-social-media-logo_277909-647.avif" alt="TikTok" width={20} height={20} />TikTok
           </a>
-          <a href="https://x.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+          {/* <a href="https://x.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
             <Image src="/X_(formerly_Twitter)_logo_late_2025.svg" alt="X" width={20} height={20} />X
-          </a>
+          </a> */}
         </div>
       </footer>
     </main>
