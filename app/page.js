@@ -212,7 +212,7 @@ export default function HomePage() {
           </div>
           <div style={{ ...styles.faqCard, backgroundColor: theme.card, color: theme.text }}>
             <strong>Q:</strong> How fast can I get my assignment?<br />
-            <strong>A:</strong> Depending on complexity, we deliver from 24 hours.
+            <strong>A:</strong> We are flexible and try to fit in your scheduled timeline.
           </div>
           <div style={{ ...styles.faqCard, backgroundColor: theme.card, color: theme.text }}>
             <strong>Q:</strong> Can I request revisions?<br />
