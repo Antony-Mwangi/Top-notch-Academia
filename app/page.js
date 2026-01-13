@@ -130,6 +130,8 @@ export default function HomePage() {
               <li>Accounting & Finance</li>
               <li>English & Literature</li>
               <li>Biology</li>
+              <li>Physics</li>
+              <li>Chemistry</li>
               <li>History & Arts</li>
               <li>Business Related Tasks</li>
               <li>Education Related Tasks</li>
