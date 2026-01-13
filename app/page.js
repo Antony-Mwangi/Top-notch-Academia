@@ -237,7 +237,7 @@ export default function HomePage() {
           <a href="https://www.facebook.com/share/19dzpF9xe1/" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
             <Image src="/Facebook-Logosu.png" alt="Facebook" width={20} height={20} />Facebook
           </a>
-          <a href="tiktok.com/@p_notch_academy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
+          <a href="https://www.tiktok.com/@p_notch_academy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
             <Image src="/tiktok-app-icon-social-media-logo_277909-647.avif" alt="TikTok" width={20} height={20} />TikTok
           </a>
           {/* <a href="https://x.com/dummy" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
