@@ -133,6 +133,10 @@ export default function HomePage() {
               <li>Physics</li>
               <li>Chemistry</li>
               <li>History & Arts</li>
+              <li>Social Sciences</li>
+              <li>Nursing</li>
+              <li>Psychology</li>
+              <li>Geography</li>
               <li>Business Related Tasks</li>
               <li>Education Related Tasks</li>
               <li>Coursework & Assignments</li>
@@ -142,14 +146,19 @@ export default function HomePage() {
             <h3 style={{ ...styles.cardTitle, color: theme.accent }}>Technical Services</h3>
             <ul style={{ ...styles.list, color: theme.text }}>
               <li>Database Management</li>
-              <li>IT & Networking</li>
+              <li>IT & Computer Networking</li>
               <li>Web Development & Administration</li>
               <li>Programming Essentials</li>
               <li>Machine Learning</li>
+              <li>Artificial Intelligence</li>
+              <li>REST API Development</li>
+              <li>Computer Science Fundamentals</li>
               <li>Data Analysis</li>
               <li>Research & Journal Papers</li>
               <li>Plagiarism Detection & Removal</li>
               <li>Technical Documentation</li>
+              <li>Computer Applications</li>
+              <li>Lab Reports</li>
             </ul>
           </div>
         </div>
