@@ -234,7 +234,7 @@ export default function HomePage() {
 
       {/* FOOTER */}
       <footer id="contact" style={{ ...styles.footer, backgroundColor: theme.accent }}>
-        <p>© 2021 TopNotch Academia. All Rights Reserved.</p>
+        <p>© 2026 TopNotch Academia. All Rights Reserved.</p>
         <div style={styles.footerLinks}>
           <a href="https://wa.me/254799890080" target="_blank" style={{ ...styles.footerLink, color: "#fff", display: "flex", alignItems: "center", gap: "5px" }}>
             <Image src="/1723724887_whatsapp-hero.jpg" alt="WhatsApp" width={20} height={20} />WhatsApp
